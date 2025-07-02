@@ -1,17 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
 
+/**
+ * Todo Component
+ * Renders a single todo item
+ * Simple presentational component that displays the todo text
+ * 
+ * @param {Object} props - Component props
+ * @param {string} props.todo - The todo task text to display
+ * @returns {JSX.Element} Individual todo item
+ */
 const Todo = ({ todo }) => (
-  <li className="todo-item">
-    <span
-      className="todo-item__text"
-    >
+  <li>
+    <span className="todo-item">
       {todo}
     </span>
   </li>
 );
 
-// export default Todo;
-export default connect(
-  null
-)(Todo);
+export default Todo;
