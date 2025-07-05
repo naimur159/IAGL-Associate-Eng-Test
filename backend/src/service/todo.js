@@ -23,6 +23,25 @@ const todoService = (repository) => {
      */
     addTodo: async (task) => {
       return await repository.addTodo(task)
+    },
+
+    /**
+     * Deletes a todo from the repository by index
+     * @param {number} id - The index of the todo to delete
+     * @returns {Promise<Object>} Promise resolving to updated todos object
+     */
+    deleteTodo: async (id) => {
+      return await repository.deleteTodo(id)
+    },
+
+    /**
+     * Updates a todo's completed status
+     * @param {number} id - The index of the todo to update
+     * @param {boolean} completed - Whether the todo is completed
+     * @returns {Promise<Object>} Promise resolving to updated todos object
+     */
+    updateTodo: async (id, completed) => {
+      return await repository.updateTodo(id, completed)
     }
   };
 };

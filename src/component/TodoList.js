@@ -33,8 +33,8 @@ class TodoList extends Component {
       <ul className="todo-list">
         {todos && todos.length > 0
           ? todos.map((todo, index) => {
-            // Render individual Todo component for each todo
-            return <Todo key={`todo-${index}`} todo={todo.task}/>;
+            // Render individual Todo component for each todo with index
+            return <Todo key={`todo-${index}`} todo={todo} index={index} />;
           })
           : <li className="empty-state">No todos yet. Add your first task above!</li>}
       </ul>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_TODOS, ADD_TODO } from "./types";
+import { FETCH_TODOS, ADD_TODO, DELETE_TODO, UPDATE_TODO } from "./types";
 
 /**
  * Action Creator: Fetch Todos
@@ -30,6 +30,43 @@ export function addTodo(task) {
   return function(dispatch) {
     // Make HTTP POST request to add new todo
     return axios.post("http://localhost:9091/api/todo", { task }).then(({ data }) => {
+      // Dispatch action with updated todos data
+      dispatch(setTodos(data));
+    });
+  };
+}
+
+/**
+ * Action Creator: Delete Todo
+ * Dispatches an async action to delete a todo from the backend
+ * Uses Redux Thunk for handling async operations
+ * 
+ * @param {number} id - The index of the todo to delete
+ * @returns {Function} Thunk function that dispatches actions
+ */
+export function deleteTodo(id) {
+  return function(dispatch) {
+    // Make HTTP DELETE request to remove todo
+    return axios.delete(`http://localhost:9091/api/todo/${id}`).then(({ data }) => {
+      // Dispatch action with updated todos data
+      dispatch(setTodos(data));
+    });
+  };
+}
+
+/**
+ * Action Creator: Update Todo
+ * Dispatches an async action to update a todo's completed status
+ * Uses Redux Thunk for handling async operations
+ * 
+ * @param {number} id - The index of the todo to update
+ * @param {boolean} completed - Whether the todo is completed
+ * @returns {Function} Thunk function that dispatches actions
+ */
+export function updateTodo(id, completed) {
+  return function(dispatch) {
+    // Make HTTP PUT request to update todo
+    return axios.put(`http://localhost:9091/api/todo/${id}`, { completed }).then(({ data }) => {
       // Dispatch action with updated todos data
       dispatch(setTodos(data));
     });
