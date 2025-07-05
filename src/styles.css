@@ -7,133 +7,146 @@
 
 /* Global body styles */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e7ef 0%, #f8fafc 100%);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #232946;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5; /* Light gray background */
-  color: #333; /* Dark gray text */
 }
 
 /* Main application container */
 .todo-app {
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: flex-start; /* Align to top */
-  padding: 2rem 1rem; /* Responsive padding */
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
 }
 
 /* Card container for the todo application */
 .todo-container {
-  background: white;
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  padding: 2.5rem 2rem 2rem 2rem;
   width: 100%;
-  max-width: 500px; /* Maximum width for readability */
+  max-width: 420px;
+  border: 1.5px solid rgba(200, 200, 255, 0.18);
 }
 
 /* Application title styling */
 h1 {
   text-align: center;
-  color: #2c3e50; /* Dark blue-gray */
-  margin-bottom: 2rem;
-  font-weight: 600;
-  font-size: 2rem;
+  color: #5f6caf;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.02em;
 }
 
 /* Form container for adding todos */
 .add-todo-form {
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
 }
 
 /* Input group layout */
 .input-group {
   display: flex;
-  gap: 0.5rem; /* Space between input and button */
+  gap: 0.7rem;
 }
 
 /* Input field styling */
 .todo-input {
-  flex: 1; /* Take remaining space */
-  padding: 0.75rem 1rem;
-  border: 2px solid #e1e8ed; /* Light gray border */
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s ease; /* Smooth border color transition */
-  outline: none;
+  flex: 1;
+  padding: 0.85rem 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background: #f3f6fa;
+  font-size: 1.08rem;
+  color: #232946;
+  box-shadow: 0 1px 4px rgba(95, 108, 175, 0.07);
+  transition: box-shadow 0.2s, background 0.2s;
 }
 
 /* Input focus state */
 .todo-input:focus {
-  border-color: #3498db; /* Blue border on focus */
+  outline: none;
+  background: #e7eaf6;
+  box-shadow: 0 2px 8px rgba(95, 108, 175, 0.13);
 }
 
 /* Input placeholder styling */
 .todo-input::placeholder {
-  color: #95a5a6; /* Light gray placeholder text */
+  color: #b0b8d1;
+  font-style: italic;
 }
 
 /* Add button styling */
 .add-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #3498db; /* Blue background */
-  color: white;
+  padding: 0 1.4rem;
+  background: linear-gradient(90deg, #6ed6e7 0%, #7f53ac 100%);
+  color: #fff;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
+  border-radius: 10px;
+  font-size: 1.08rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease; /* Smooth background transition */
-  white-space: nowrap; /* Prevent button text wrapping */
+  box-shadow: 0 1px 4px rgba(127, 83, 172, 0.10);
+  transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
+  opacity: 0.95;
 }
 
 /* Button hover state */
 .add-button:hover:not(:disabled) {
-  background-color: #2980b9; /* Darker blue on hover */
+  background: linear-gradient(90deg, #7f53ac 0%, #6ed6e7 100%);
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(127, 83, 172, 0.18);
 }
 
 /* Button disabled state */
 .add-button:disabled {
-  background-color: #bdc3c7; /* Gray when disabled */
+  background: #e0e7ef;
+  color: #b0b8d1;
   cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* Todo list container */
 .todo-list {
-  list-style: none; /* Remove default list bullets */
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Individual todo item styling */
 .todo-item {
-  background: #f8f9fa; /* Very light gray background */
-  margin-bottom: 0.75rem;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #3498db; /* Blue accent bar */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
+  background: #f7f9fd;
+  margin-bottom: 1.1rem;
+  padding: 1.1rem 1.1rem 1.1rem 0.9rem;
+  border-radius: 12px;
+  border-left: 5px solid #7f53ac;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(127, 83, 172, 0.07);
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+  position: relative;
 }
 
 /* Todo item hover effect */
 .todo-item:hover {
-  transform: translateY(-1px); /* Slight upward movement */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+  box-shadow: 0 4px 16px rgba(127, 83, 172, 0.13);
+  background: #f0f4fa;
 }
 
 /* Completed todo item styling */
 .todo-item.completed {
-  border-left-color: #27ae60; /* Green accent for completed items */
-  background: #f1f8f1; /* Light green background */
-}
-
-/* Remove margin from last todo item */
-.todo-list li:last-child {
-  margin-bottom: 0;
+  border-left-color: #6ed6e7;
+  background: #eafafc;
+  opacity: 0.7;
 }
 
 /* Todo content container */
@@ -141,62 +154,90 @@ h1 {
   display: flex;
   align-items: center;
   flex: 1;
-  gap: 0.75rem;
+  gap: 0.9rem;
 }
 
 /* Checkbox styling */
 .todo-checkbox {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+  accent-color: #6ed6e7;
+  border-radius: 50%;
   cursor: pointer;
-  accent-color: #27ae60; /* Green color for checked state */
+  transition: accent-color 0.2s;
 }
 
 /* Todo text styling */
 .todo-text {
-  color: #2c3e50; /* Dark blue-gray text */
-  font-size: 1rem;
+  color: #232946;
+  font-size: 1.08rem;
   line-height: 1.5;
   flex: 1;
+  transition: color 0.2s, text-decoration 0.2s, opacity 0.2s;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 /* Completed todo text styling */
 .todo-text.completed {
   text-decoration: line-through;
-  color: #7f8c8d; /* Grayed out text */
+  color: #7f8c8d;
+  font-style: italic;
+  opacity: 0.7;
 }
 
 /* Delete button styling */
 .delete-button {
-  background: #e74c3c; /* Red background */
-  color: white;
+  background: none;
+  color: #b0b8d1;
   border: none;
   border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.3rem;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
   opacity: 0.7;
+  margin-left: 0.5rem;
 }
 
 /* Delete button hover state */
 .delete-button:hover {
-  background: #c0392b; /* Darker red on hover */
+  color: #7f53ac;
+  background: #f3f0fa;
   opacity: 1;
+  box-shadow: 0 2px 8px rgba(127, 83, 172, 0.10);
 }
 
 /* Empty state styling */
 .empty-state {
   text-align: center;
-  color: #7f8c8d; /* Medium gray text */
+  color: #b0b8d1;
   font-style: italic;
-  padding: 2rem;
-  background: #f8f9fa; /* Light gray background */
-  border-radius: 8px;
-  border: 2px dashed #bdc3c7; /* Dashed border */
+  padding: 2.2rem 1rem;
+  background: #f7f9fd;
+  border-radius: 12px;
+  border: 2px dashed #e0e7ef;
+  font-size: 1.08rem;
+  margin-top: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .todo-container {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  h1 {
+    font-size: 1.4rem;
+  }
+  .add-todo-form {
+    margin-bottom: 1.2rem;
+  }
+  .todo-item {
+    padding: 0.7rem 0.7rem 0.7rem 0.5rem;
+  }
 }
